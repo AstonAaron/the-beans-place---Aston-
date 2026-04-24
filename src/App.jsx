@@ -54,8 +54,10 @@
 
 /* --- YOUR COMPONENT CODE GOES HERE --- */
 import HeroSection from "./components/HeroSection";
+import RibbonTicker from "./components/RibbonTicker";
 import FooterSection from "./components/FooterSection";
 import NavBar from "./components/NavBar";
+
 
 export default function App() {
     return (
@@ -70,6 +72,8 @@ export default function App() {
                 </div>
             </section>
 
+                <RibbonTicker/>
+            
             {/* FOOTER */}
             <section className="bg-footer">
                 <FooterSection />
