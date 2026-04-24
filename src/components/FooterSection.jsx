@@ -144,7 +144,7 @@ const navigation = {
  
 const currentYear = new Date().getFullYear();
  
-/* Leaflet map component */
+/* ── Leaflet map component ── */
 function LocationMap() {
     const mapRef = useRef(null);
     const mapInstance = useRef(null);
@@ -163,6 +163,7 @@ function LocationMap() {
             attributionControl: true
         });
  
+        // Use a warm-toned tile layer
         L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
             attribution:
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
@@ -205,7 +206,7 @@ function LocationMap() {
     }, []);
  
     return (
-        <div ref={mapRef} className="footer-map" style={{ width: "100%", overflow: "hidden " }} />
+        <div ref={mapRef} className="footer-map" style={{ width: "100%", overflow: "hidden" }} />
     );
 }
  
@@ -213,12 +214,12 @@ export default function FooterSection() {
     return (
         <footer className="footer">
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32 2xl:max-w-[1600px]">
-                {/* MAP */}
+                {/* Map */}
                 <ScrollReveal animation="fadeUp">
                     <LocationMap />
                 </ScrollReveal>
  
-                {/* FOOTER COLUMNS */}
+                {/* Footer columns */}
                 <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
                     <ScrollReveal animation="fadeUp" className="col-span-2 md:col-span-1 space-y-4">
                         <img
@@ -245,7 +246,6 @@ export default function FooterSection() {
  
                     <ScrollReveal animation="fadeUp" delay={0.1}>
                         <h4 className="footer-col">Shop</h4>
- 
                         <ul role="list" className="footer-links mt-4">
                             {navigation.shop.map((item) => (
                                 <li key={item.name}>
@@ -277,15 +277,15 @@ export default function FooterSection() {
                         </ul>
                     </ScrollReveal>
                 </div>
-               
+ 
                 <Separator className="mt-16 mb-6" />
-               
+ 
                 <div className="footer-bottom">
-                    <p>
-                      &copy; {currentYear} The Beans Place, LLC. All rights reserved.  
-                    </p>
+                    <p>&copy; {currentYear} The Beans Place, LLC. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     );
 }
+ 
+ 
