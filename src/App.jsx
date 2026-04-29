@@ -60,7 +60,7 @@ import FooterSection from "./components/FooterSection";
 import NavBar from "./components/NavBar";
 import ProductShowcase from "./components/ProductShowcase";
 import CtaSection from "./components/CtaSection";
-
+import AboutSection from "./components/AboutSection";
 
 export default function App() {
     return (
@@ -92,6 +92,11 @@ export default function App() {
             {/* CTA Section */}
             <section className="bg-cta">
                 <CtaSection />
+            </section>
+            
+            {/* About Section */}
+            <section className="bg-cta" id="about">
+                <AboutSection />
             </section>
             
             {/* FOOTER */}
