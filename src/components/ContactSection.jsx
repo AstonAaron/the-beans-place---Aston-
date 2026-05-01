@@ -427,7 +427,7 @@ function ContactFormInline() {
 
                 {status === "error" && (
                     <motion.span
-                        inital={{ opacity: 0, x: -10 }}
+                        initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="text-sm text-red-400">
                         Something went wrong. Please try again.
@@ -441,6 +441,7 @@ function ContactFormInline() {
 export default function ContactSection() {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const sectionRef = useRef(null);
+
     useEffect(() => {
         const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
         window.addEventListener("mousemove", handleMouseMove);
@@ -449,12 +450,12 @@ export default function ContactSection() {
 
     return (
         <div className="contact-section-wrap" ref={sectionRef}>
-            {/* Background  effects */}
+            {/* Background Effects */}
             <div className="contact-bg-effects">
-                <div className="contact-orb orb1 contact-bg-orb--1" />
-                <div className="contact-orb orb2 contact-bg-orb--2" />
-                <div className="contact-orb orb3 contact-bg-orb--3" />
-                <div className="contact-orb orb4 contact-bg-orb--4" />
+                <div className="contact-bg-orb contact-bg-orb--1" />
+                <div className="contact-bg-orb contact-bg-orb--2" />
+                <div className="contact-bg-orb contact-bg-orb--3" />
+                <div className="contact-bg-orb contact-bg-orb--4" />
             </div>
 
             <div className="contact-inner">
@@ -478,19 +479,20 @@ export default function ContactSection() {
 
                     <p className="lead--light" style={{ maxWidth: "52ch", margin: "10px auto 0" }}>
                         Whether you're ordering beans, planning an event, or just want to say hello
-                        - we'd love to hear from you!
+                        - we'd love to hear from you.
                     </p>
-                    <Separator className="mt-4 mb-2 max-w-48" />
+
+                    <Separator className="mt-4 mb-2 mx-auto max-w-48" />
                 </ScrollReveal>
 
-                {/* Two-column: form + info cards */}
-                <div className="Contact-layout">
-                    {/* Lef: contact form */}
+                {/* Two-Column: Form + Info Cards */}
+                <div className="contact-layout">
+                    {/* Lef: Contact Form */}
                     <div className="contact-form-col">
                         <ContactFormInline />
                     </div>
 
-                    {/* Right: contact info cards + social links */}
+                    {/* Right: Info Cards + Social */}
                     <div className="contact-info-col">
                         <StaggerContainer className="contact-info-cards" staggerDelay={0.1}>
                             {contactChannels.map((channel) => (
@@ -506,7 +508,7 @@ export default function ContactSection() {
                                                 : undefined
                                         }
                                         className="contact-card-link">
-                                        <div className="contact-car">
+                                        <div className="contact-card">
                                             <div
                                                 className="contact-card-accent"
                                                 style={{ background: channel.accentColor }}
@@ -539,6 +541,7 @@ export default function ContactSection() {
                                                     </svg>
                                                 </div>
                                             </div>
+
                                             <div className="contact-card-shimmer" />
                                         </div>
                                     </TiltCard>
@@ -548,7 +551,7 @@ export default function ContactSection() {
 
                         {/* Social Links Row */}
                         <ScrollReveal animation="fadeUp" delay={0.4} className="contact-social-row">
-                            <span className="contact-social-row">Follow Us</span>
+                            <span className="contact-social-label">Follow Us</span>
                             <div className="contact-social-icons">
                                 {[
                                     {
@@ -604,11 +607,11 @@ export default function ContactSection() {
                 </div>
             </div>
 
-            {/* Mouse-follow glow (desktop only) */}
+            {/* Mouse Follow Glow (desktop only) */}
             <div
                 className="contact-mouse-glow"
                 style={{
-                    left: `$mousePos.x - 192}px`,
+                    left: `${mousePos.x - 192}px`,
                     top: `${mousePos.y - 192}px`
                 }}></div>
         </div>
